@@ -1,0 +1,684 @@
+:root {
+  --bg: #d9ccb9;
+  --bg-dark: #cbb9a3;
+  --paper: #fbf4e7;
+  --paper-2: #f4ead9;
+  --ink: #554840;
+  --muted: #907b6b;
+  --rose: #bd8583;
+  --rose-light: #e5c1b8;
+  --sage: #899a7d;
+  --brown: #96765f;
+  --cream: #fffaf1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(255,255,255,.28) 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 63%, rgba(101,77,58,.08) 0 1px, transparent 2px),
+    repeating-linear-gradient(0deg, rgba(91,67,49,.025) 0 1px, transparent 1px 4px),
+    linear-gradient(135deg, #e5dac9, #d5c5b0);
+  overflow-x: hidden;
+}
+
+.page {
+  position: relative;
+  width: min(1120px, 100%);
+  min-height: 100vh;
+  margin: auto;
+  padding: 55px 30px 70px;
+  isolation: isolate;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  z-index: -4;
+  inset: 25px 18px 30px;
+  background: rgba(249, 241, 225, .45);
+  transform: rotate(-1deg);
+  box-shadow: 0 18px 45px rgba(76, 57, 43, .12);
+}
+
+.page::after {
+  content: "";
+  position: absolute;
+  z-index: -5;
+  inset: 45px 2px 10px;
+  background: rgba(242, 229, 208, .7);
+  transform: rotate(1.3deg);
+}
+
+.paper-shadow {
+  position: absolute;
+  z-index: -2;
+  background: #eee1ce;
+  box-shadow: 0 7px 15px rgba(75,55,42,.09);
+}
+
+.paper-shadow-a {
+  width: 180px;
+  height: 220px;
+  left: 3%;
+  top: 285px;
+  transform: rotate(-7deg);
+}
+
+.paper-shadow-b {
+  width: 180px;
+  height: 240px;
+  right: 3%;
+  top: 340px;
+  transform: rotate(8deg);
+}
+
+.scrap {
+  position: absolute;
+  z-index: 1;
+  padding: 15px 18px;
+  background: #f4e6cf;
+  box-shadow: 3px 5px 12px rgba(67,49,37,.12);
+  font: 500 21px/1.05 "Caveat", cursive;
+  color: #806b5b;
+}
+
+.scrap-top-left {
+  left: 4%;
+  top: 72px;
+  transform: rotate(-8deg);
+}
+
+.scrap-top-right {
+  right: 5%;
+  top: 92px;
+  font: 600 12px/1.35 "DM Sans", sans-serif;
+  letter-spacing: 2px;
+  text-align: center;
+  transform: rotate(7deg);
+  color: #a06f6e;
+}
+
+/* POLAROIDS RESPONSIVAS */
+.polaroid {
+  position: absolute;
+  z-index: 2;
+  width: 155px;
+  padding: 9px 9px 16px;
+  background: #fffaf0;
+  box-shadow: 4px 8px 18px rgba(72,54,43,.14);
+  text-align: center;
+}
+
+.polaroid span {
+  display: block;
+  margin-top: 8px;
+  font: 500 18px "Caveat", cursive;
+  color: #766359;
+}
+
+.polaroid-left {
+  left: 4%;
+  top: 360px;
+  transform: rotate(-10deg);
+}
+
+.polaroid-right {
+  right: 4%;
+  top: 390px;
+  transform: rotate(9deg);
+}
+
+.photo {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  background: #eee1ce;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.torn-note {
+  position: absolute;
+  z-index: 1;
+  padding: 17px 18px;
+  width: 145px;
+  background: #f5ead7;
+  font: 500 21px/1.05 "Caveat", cursive;
+  box-shadow: 3px 5px 12px rgba(70,50,37,.1);
+}
+
+.note-left {
+  left: 5%;
+  bottom: 230px;
+  transform: rotate(5deg);
+}
+
+.note-right {
+  right: 5%;
+  bottom: 210px;
+  transform: rotate(-6deg);
+  text-align: center;
+}
+
+.washi {
+  position: absolute;
+  z-index: 5;
+  width: 125px;
+  height: 30px;
+  background: rgba(210,181,147,.65);
+  box-shadow: 0 2px 3px rgba(65,48,37,.08);
+}
+
+.washi-one { left: 3%; top: 328px; transform: rotate(-17deg); }
+.washi-two { right: 2%; top: 366px; transform: rotate(15deg); }
+.washi-three { left: 8%; bottom: 185px; transform: rotate(8deg); opacity:.7; }
+
+.stamp {
+  position: absolute;
+  z-index: 3;
+  width: 95px;
+  height: 95px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 2px dashed #a98270;
+  background: rgba(248,235,214,.75);
+  color: #a06f68;
+  font-size: 10px;
+  line-height: 1.35;
+  letter-spacing: 1.5px;
+  box-shadow: inset 0 0 0 5px rgba(255,250,240,.35);
+}
+
+.stamp-one {
+  right: 13%;
+  bottom: 95px;
+  transform: rotate(-9deg);
+}
+
+.stamp-two {
+  left: 13%;
+  bottom: 105px;
+  transform: rotate(10deg);
+}
+
+.doodle {
+  position: absolute;
+  z-index: 1;
+  color: var(--sage);
+  font-family: "Caveat", cursive;
+  pointer-events: none;
+}
+
+.doodle-flower { left: 15%; top: 230px; font-size: 46px; transform: rotate(-15deg); }
+.doodle-flower-2 { right: 13%; top: 265px; font-size: 40px; color: var(--rose); transform: rotate(12deg); }
+.doodle-leaf { right: 17%; bottom: 295px; font-size: 55px; transform: rotate(-30deg); }
+.doodle-star { left: 18%; bottom: 325px; font-size: 28px; color: #b99670; }
+
+.header {
+  position: relative;
+  z-index: 8;
+  text-align: center;
+  margin: 5px auto 28px;
+}
+
+.eyebrow {
+  margin: 0 0 5px;
+  color: #9c7c6a;
+  font: 500 21px "Caveat", cursive;
+}
+
+h1 {
+  margin: 0;
+  color: #574840;
+  font: italic 500 clamp(36px, 6vw, 60px)/1.05 "Playfair Display", serif;
+}
+
+.sub {
+  margin: 9px 0 0;
+  color: #8d786a;
+  font-size: 10px;
+  letter-spacing: 2.7px;
+  text-transform: uppercase;
+}
+
+.header-line {
+  margin: 13px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #b58b79;
+}
+
+.header-line::before,
+.header-line::after {
+  content: "";
+  width: 75px;
+  height: 1px;
+  background: #c7ad98;
+}
+
+.letter-wrap {
+  position: relative;
+  z-index: 10;
+  width: min(680px, 100%);
+  margin: 0 auto;
+}
+
+.letter {
+  position: relative;
+  min-height: 600px;
+  padding: 62px clamp(28px, 7vw, 68px) 50px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 34px,
+      rgba(132,106,84,.075) 35px
+    ),
+    var(--paper);
+  box-shadow:
+    0 22px 38px rgba(67,49,38,.17),
+    0 3px 5px rgba(67,49,38,.08);
+  transform: rotate(-.6deg);
+  clip-path: polygon(
+    0 1%, 6% 0, 12% 1%, 19% 0, 27% 1%, 34% 0, 42% 1%,
+    50% 0, 59% 1%, 67% 0, 75% 1%, 83% 0, 91% 1%, 100% 0,
+    99% 9%, 100% 18%, 99% 28%, 100% 37%, 99% 48%, 100% 58%,
+    99% 68%, 100% 79%, 99% 90%, 100% 100%, 91% 99%, 82% 100%,
+    73% 99%, 64% 100%, 55% 99%, 46% 100%, 37% 99%, 28% 100%,
+    19% 99%, 10% 100%, 0 99%, 1% 89%, 0 79%, 1% 68%, 0 58%,
+    1% 47%, 0 37%, 1% 27%, 0 17%, 1% 8%
+  );
+}
+
+.tape {
+  position: absolute;
+  z-index: 15;
+  width: 150px;
+  height: 35px;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(211,181,146,.68);
+  box-shadow: 0 2px 4px rgba(62,45,34,.08);
+}
+
+.letter-decoration {
+  position: absolute;
+  color: #b9877e;
+  opacity: .65;
+  font-size: 26px;
+}
+
+.letter-decoration.top { top: 23px; left: 30px; transform: rotate(-12deg); }
+.letter-decoration.bottom { bottom: 20px; right: 31px; transform: rotate(12deg); }
+
+.letter-heading {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.tiny-label {
+  color: #aa8271;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.letter-heading h2 {
+  margin: 7px 0 0;
+  font: 500 28px "Caveat", cursive;
+  color: #725c50;
+}
+
+/* TEXTO DE LA CARTA (ESTÁTICO) */
+.letter-body {
+  min-height: 385px;
+  color: var(--ink);
+  font: 400 25px/1.42 "Caveat", cursive;
+  user-select: none;
+}
+
+.letter-body p {
+  margin: 0 0 1em 0;
+  white-space: pre-wrap;
+}
+
+.letter-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 8px;
+  color: #8e7668;
+  font: 400 20px "Caveat", cursive;
+}
+
+.signature-text {
+  color: #80695c;
+  font: 400 21px "Caveat", cursive;
+  border-bottom: 1px solid #c7ad98;
+  padding: 0 8px;
+}
+
+.footer {
+  position: relative;
+  z-index: 7;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+  color: #806b5e;
+  font: 400 19px "Caveat", cursive;
+}
+
+/* ESQUINAS DOBLADAS */
+.fold {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  opacity: .7;
+}
+
+.fold-left {
+  left: 0;
+  bottom: 0;
+  border-width: 0 0 45px 45px;
+  border-color: transparent transparent #e8dac6 transparent;
+}
+
+.fold-right {
+  right: 0;
+  top: 0;
+  border-width: 45px 45px 0 0;
+  border-color: #e8dac6 transparent transparent transparent;
+}
+
+/* ADAPTACIÓN MÓVIL (RESPONSIVE) */
+@media (max-width: 760px) {
+  body {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,.3) 0 1px, transparent 2px),
+      repeating-linear-gradient(0deg, rgba(91,67,49,.025) 0 1px, transparent 1px 4px),
+      linear-gradient(135deg, #e5dac9, #d5c5b0);
+  }
+
+  .page {
+    min-height: 100svh;
+    padding: 32px 14px 65px;
+  }
+
+  .page::before { inset: 12px 7px 20px; }
+  .page::after { inset: 25px 2px 5px; }
+
+  .scrap-top-left {
+    left: 8px;
+    top: 20px;
+    transform: rotate(-7deg) scale(.78);
+    transform-origin: left top;
+  }
+
+  .scrap-top-right {
+    right: 8px;
+    top: 26px;
+    transform: rotate(7deg) scale(.75);
+    transform-origin: right top;
+  }
+
+/* POLAROIDS BASE */
+.polaroid {
+  position: absolute;
+  z-index: 12; /* Elevamos el z-index para que se sobrepongan bonito */
+  width: 140px;
+  padding: 8px 8px 14px;
+  background: #fffaf0;
+  box-shadow: 4px 8px 18px rgba(72,54,43,.18);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.polaroid span {
+  display: block;
+  margin-top: 6px;
+  font: 500 16px "Caveat", cursive;
+  color: #766359;
+}
+
+.photo {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Mantiene proporción cuadrada para las fotos */
+  height: auto;
+  overflow: hidden;
+  background: #eee1ce;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+  .paper-shadow-a {
+    width: 110px;
+    height: 160px;
+    left: -2px;
+    top: 205px;
+  }
+
+  .paper-shadow-b {
+    width: 110px;
+    height: 160px;
+    right: -2px;
+    top: 240px;
+  }
+
+  .note-left,
+  .note-right,
+  .stamp-one,
+  .stamp-two,
+  .doodle,
+  .washi-three {
+    display: none;
+  }
+
+  .washi-one {
+    left: -3px;
+    top: 184px;
+    width: 80px;
+    height: 22px;
+  }
+
+  .washi-two {
+    right: -3px;
+    top: 218px;
+    width: 80px;
+    height: 22px;
+  }
+
+  .header {
+    margin-top: 45px;
+    margin-bottom: 23px;
+  }
+
+  .eyebrow { font-size: 18px; }
+  h1 { font-size: clamp(34px, 11vw, 48px); }
+  .sub { font-size: 8px; letter-spacing: 1.7px; }
+
+  .header-line::before,
+  .header-line::after {
+    width: 45px;
+  }
+
+  .letter-wrap {
+    width: calc(100% - 12px);
+  }
+
+  .letter {
+    min-height: 590px;
+    padding: 54px 22px 42px;
+    transform: rotate(-.35deg);
+  }
+
+  .tape {
+    width: 115px;
+    height: 29px;
+    top: -12px;
+  }
+
+  .letter-heading h2 { font-size: 25px; }
+  .letter-body { min-height: 390px; font-size: 23px; }
+  .letter-footer { font-size: 18px; }
+  .signature-text { font-size: 19px; }
+  .footer { margin-top: 25px; font-size: 17px; }
+}
+
+/* ADAPTACIÓN MÓVIL (IPHONE & DISPOSITIVOS MÓVILES) */
+@media (max-width: 760px) {
+  body {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,.3) 0 1px, transparent 2px),
+      repeating-linear-gradient(0deg, rgba(91,67,49,.025) 0 1px, transparent 1px 4px),
+      linear-gradient(135deg, #e5dac9, #d5c5b0);
+  }
+
+  .page {
+    min-height: 100svh;
+    padding: 20px 10px 50px;
+    overflow: hidden; /* Evita scroll horizontal por elementos rotados */
+  }
+
+  .page::before { inset: 10px 5px 15px; }
+  .page::after { inset: 18px 2px 5px; }
+
+  /* Papelitos decorativos superiores */
+  .scrap-top-left {
+    left: 12px;
+    top: 15px;
+    padding: 8px 10px;
+    font-size: 16px;
+    transform: rotate(-6deg);
+  }
+
+  .scrap-top-right {
+    right: 12px;
+    top: 18px;
+    padding: 6px 8px;
+    font-size: 10px;
+    transform: rotate(5deg);
+  }
+
+  /* REUBICACIÓN Y ESCALADO DE POLAROIDS PARA IPHONE */
+  .polaroid {
+    width: 100px; /* Tamaño adaptado a la pantalla del iPhone */
+    padding: 5px 5px 8px;
+  }
+
+  .polaroid span {
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  /* Polaroid Izquierda: Ajustada al borde izquierdo sobre el encabezado de la carta */
+  .polaroid-left {
+    left: 8px;
+    top: 180px;
+    transform: rotate(-8deg);
+    z-index: 15;
+  }
+
+  /* Polaroid Derecha: Ajustada al borde derecho */
+  .polaroid-right {
+    right: 8px;
+    top: 195px;
+    transform: rotate(7deg);
+    z-index: 15;
+  }
+
+  /* Sombras y Washi Tapes ajustados */
+  .paper-shadow-a,
+  .paper-shadow-b {
+    display: none; /* Ocultamos sombras pesadas en móvil para limpiar la vista */
+  }
+
+  .washi-one {
+    left: 4px;
+    top: 172px;
+    width: 65px;
+    height: 18px;
+    z-index: 16;
+  }
+
+  .washi-two {
+    right: 4px;
+    top: 188px;
+    width: 65px;
+    height: 18px;
+    z-index: 16;
+  }
+
+  .note-left,
+  .note-right,
+  .stamp-one,
+  .stamp-two,
+  .doodle,
+  .washi-three {
+    display: none; /* Ocultamos decoraciones secundarias que enciman el contenido */
+  }
+
+  /* Encabezado */
+  .header {
+    margin-top: 55px;
+    margin-bottom: 25px;
+  }
+
+  .eyebrow { font-size: 16px; }
+  h1 { font-size: clamp(32px, 9vw, 42px); }
+  .sub { font-size: 8px; letter-spacing: 1.5px; }
+
+  .header-line::before,
+  .header-line::after {
+    width: 35px;
+  }
+
+  /* Carta Principal */
+  .letter-wrap {
+    width: 100%;
+    padding: 0 5px;
+  }
+
+  .letter {
+    min-height: 520px;
+    padding: 60px 18px 35px; /* Damos espacio superior para no pisar el texto con las fotos */
+    transform: rotate(0deg);
+  }
+
+  .tape {
+    width: 100px;
+    height: 24px;
+    top: -10px;
+  }
+
+  .letter-heading h2 { font-size: 23px; }
+  .letter-body { min-height: 320px; font-size: 21px; }
+  .letter-footer { font-size: 17px; }
+  .signature-text { font-size: 18px; }
+  .footer { margin-top: 20px; font-size: 15px; }
+}
